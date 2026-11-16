@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Primera Cena Navideña · Trabajo Social</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+:root{--pa:rgba(255,253,248,.6);--pb:rgba(247,239,220,.6);--bg:#efe6d2;--paper:#fffdf8;--paper2:#f7efdc;--ink:#4a3a22;--muted:#8a7650;--line:rgba(176,141,60,.4);--ov:#fbf7ec;
+--serif:'Playfair Display',Georgia,'Times New Roman',serif;--script:'Great Vibes','Brush Script MT',cursive;--body:'Cormorant Garamond',Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pa:rgba(28,23,16,.66);--pb:rgba(36,29,19,.66);--bg:#0f0c08;--paper:#1c1710;--paper2:#241d13;--ink:#f3e6c8;--muted:#cdb98a;--ov:#15110b}}
+:root[data-theme="dark"]{--pa:rgba(28,23,16,.66);--pb:rgba(36,29,19,.66);--bg:#0f0c08;--paper:#1c1710;--paper2:#241d13;--ink:#f3e6c8;--muted:#cdb98a;--ov:#15110b}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.15rem}
+.gt{background:linear-gradient(180deg,#f6e7b4,#c9a24a 55%,#8a6a22);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc{font-family:var(--script);line-height:1.05;margin:0}
+.kick{font-family:var(--serif);letter-spacing:.32em;text-transform:uppercase;font-size:.7rem;color:var(--muted)}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:6}
+/* sobre */
+#env{position:fixed;inset:0;z-index:20;background:radial-gradient(circle at 50% 30%,var(--ov),var(--bg));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity 1s,visibility 1s;padding:20px;text-align:center}
+#env.gone{opacity:0;visibility:hidden}
+.env{position:relative;width:min(320px,82vw);aspect-ratio:1.4;background:linear-gradient(#f6ecd2,#e3cf9b);border-radius:6px;box-shadow:0 22px 50px rgba(120,90,30,.35);cursor:pointer}
+.letter{position:absolute;left:7%;right:7%;top:6%;bottom:6%;background:var(--paper);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:transform 1.1s .55s;z-index:2;font-family:var(--serif);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#8a6a22;padding:10px}
+.pocket{position:absolute;inset:0;z-index:3;background:linear-gradient(#efdfb0,#d8c186);clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);border-radius:6px}
+.flap{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(#f2e4bb,#dcc78f);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s;z-index:4}
+.env.open .flap{transform:rotateX(180deg);z-index:1}
+.env.open .letter{transform:translateY(-52%)}
+.bow{position:absolute;left:50%;top:50%;width:34%;transform:translate(-50%,-50%);z-index:5;transition:opacity .4s;filter:drop-shadow(0 4px 5px rgba(80,55,10,.4));animation:pulse 2s ease-in-out infinite}
+.env.open .bow{opacity:0}
+@keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.07)}}
+.tap{font-family:var(--serif);letter-spacing:.25em;text-transform:uppercase;font-size:.75rem;color:var(--muted);animation:blink 1.8s infinite}
+@keyframes blink{50%{opacity:.35}}
+/* página */
+#m{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;opacity:0;transition:opacity 1.2s .3s;padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+#m.on{opacity:1}
+.col{max-width:480px;margin:0 auto;background:transparent;min-height:100%;position:relative;z-index:1}
+#bgtree{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,125vw);height:auto;opacity:.75;z-index:0;pointer-events:none}
+@media (prefers-color-scheme:dark){#bgtree{opacity:.35}}
+section{padding:54px 28px;text-align:center;position:relative;border-bottom:1px solid var(--line);background:var(--pa)}
+section:nth-child(even){background:var(--pb)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+h1{font-family:var(--serif);font-weight:700;font-size:2.5rem;letter-spacing:.14em;margin:.1em 0;text-transform:uppercase}
+h2{font-family:var(--serif);font-weight:600;font-size:1.3rem;letter-spacing:.12em;text-transform:uppercase;margin:.3em 0}
+p{margin:.7em 0;line-height:1.55}
+.rule{display:flex;align-items:center;gap:12px;color:#b8923d;margin:16px auto;max-width:260px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#b8923d,transparent)}
+.tree{width:min(210px,60%);margin:8px auto;filter:drop-shadow(0 10px 14px rgba(120,90,30,.25))}
+.tw{animation:tw 2s ease-in-out infinite alternate}.tw:nth-child(2n){animation-delay:.7s}.tw:nth-child(3n){animation-delay:1.3s}
+@keyframes tw{from{opacity:.3}to{opacity:1}}
+.dtl{display:inline-block;border:1px solid #b8923d;padding:14px 26px;margin-top:10px}
+.dtl b{display:block;font-family:var(--serif);font-size:1.5rem;letter-spacing:.1em}
+.dtl small{letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--muted)}
+.bauble{width:96px;margin:0 auto -6px;animation:sw 3s ease-in-out infinite;transform-origin:top center}
+@keyframes sw{50%{transform:rotate(5deg)}}
+.cd{display:flex;justify-content:center;gap:6px;font-family:var(--serif);font-size:2.2rem;margin:10px 0 0}
+.cd div{min-width:62px}.cd small{display:block;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cd span.s{align-self:flex-start;color:#b8923d}
+.card{border:1px solid var(--line);background:var(--paper);padding:22px 18px;margin:16px 0;position:relative}
+.card::before{content:"✦";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--paper2);color:#b8923d;padding:0 8px;font-size:.9rem}
+.card p{margin:.3em 0}
+.btn{display:inline-block;margin-top:12px;padding:13px 26px;background:linear-gradient(180deg,#f3e3b0,#c9a24a 60%,#a3802d);color:#3a2a0c;font-family:var(--serif);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;text-decoration:none;border-radius:3px;box-shadow:0 6px 16px rgba(120,90,30,.35)}
+ul.l{list-style:none;padding:0;margin:14px 0;text-align:left}
+ul.l li{padding:12px 4px 12px 34px;border-bottom:1px solid var(--line);position:relative;font-size:1.2rem}
+ul.l li::before{content:"✦";position:absolute;left:6px;color:#b8923d}
+ul.l li b{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.04em}
+ul.l li.hl{background:linear-gradient(90deg,rgba(201,162,74,.18),transparent)}
+#music{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;background:linear-gradient(#f3e3b0,#c9a24a);color:#3a2a0c;border:0;border-radius:999px;padding:9px 15px;font:600 .72rem var(--serif);letter-spacing:.1em;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<div id="env">
+  <div class="sc gt" style="font-size:3.2rem">Estás invitado</div>
+  <div class="env" id="envbox">
+    <div class="letter">Primera Cena Navideña</div>
+    <div class="pocket"></div><div class="flap"></div>
+    <svg class="bow" viewBox="0 0 120 80"><defs><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e7b4"/><stop offset=".5" stop-color="#c9a24a"/><stop offset="1" stop-color="#8a6a22"/></linearGradient></defs><path d="M60 40C40 8 4 10 8 36c3 24 38 10 52 4z" fill="url(#gb)"/><path d="M60 40C80 8 116 10 112 36c-3 24-38 10-52 4z" fill="url(#gb)"/><path d="M57 44L33 76l17-4 10-22zM63 44l24 32-17-4-10-22z" fill="url(#gb)" opacity=".92"/><circle cx="60" cy="40" r="9" fill="url(#gb)" stroke="#8a6a22" stroke-width="1"/></svg>
+  </div>
+  <div class="tap">Toca el sobre para abrir</div>
+</div>
+
+<main id="m"><svg id="bgtree" viewBox="0 0 300 400" aria-hidden="true"><defs><linearGradient id="bgT" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e4dac0"/></linearGradient><radialGradient id="bgB" cx=".35" cy=".3"><stop offset="0" stop-color="#fff3c4"/><stop offset=".6" stop-color="#c9a24a"/><stop offset="1" stop-color="#8a6a22"/></radialGradient></defs><rect x="136" y="366" width="28" height="34" fill="#b08d4a"/><path d="M150 150L258 270Q150 292 42 270Z" fill="url(#bgT)" stroke="#d2c398" stroke-width="1.5"/><path d="M150 224L282 366Q150 392 18 366Z" fill="url(#bgT)" stroke="#d2c398" stroke-width="1.5"/><path d="M150 84L232 190Q150 208 68 190Z" fill="url(#bgT)" stroke="#d2c398" stroke-width="1.5"/><path d="M150 24L206 118Q150 132 94 118Z" fill="url(#bgT)" stroke="#d2c398" stroke-width="1.5"/><g fill="none" stroke="#c9a24a" stroke-width="2.5" stroke-linecap="round"><path d="M104 108Q150 126 198 106"/><path d="M80 178Q150 202 222 176"/><path d="M58 256Q150 288 246 254"/><path d="M34 346Q150 390 270 342"/></g><polygon points="150,0 156,16 174,16 160,26 165,43 150,33 135,43 140,26 126,16 144,16" fill="url(#bgB)"/><g fill="url(#bgB)"><circle cx="122" cy="118" r="6"/><circle cx="176" cy="114" r="6"/><circle cx="100" cy="192" r="7"/><circle cx="150" cy="200" r="7"/><circle cx="200" cy="190" r="7"/><circle cx="76" cy="272" r="8"/><circle cx="128" cy="286" r="8"/><circle cx="178" cy="284" r="8"/><circle cx="226" cy="270" r="8"/><circle cx="54" cy="364" r="9"/><circle cx="110" cy="380" r="9"/><circle cx="190" cy="378" r="9"/><circle cx="246" cy="360" r="9"/></g><g fill="#fff0b8"><circle class="tw" cx="140" cy="90" r="2.4"/><circle class="tw" cx="170" cy="150" r="2.4"/><circle class="tw" cx="112" cy="156" r="2.4"/><circle class="tw" cx="90" cy="232" r="2.4"/><circle class="tw" cx="210" cy="232" r="2.4"/><circle class="tw" cx="150" cy="250" r="2.4"/><circle class="tw" cx="70" cy="326" r="2.4"/><circle class="tw" cx="150" cy="340" r="2.4"/><circle class="tw" cx="230" cy="326" r="2.4"/></g></svg><div class="col">
+
+<section>
+  <div class="kick rv">Estás cordialmente invitado a la</div>
+  <svg class="tree rv" viewBox="0 0 200 270"><defs><radialGradient id="bl" cx=".35" cy=".3"><stop offset="0" stop-color="#fff3c4"/><stop offset=".6" stop-color="#c9a24a"/><stop offset="1" stop-color="#8a6a22"/></radialGradient><linearGradient id="tr" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6dec8"/></linearGradient></defs>
+  <rect x="90" y="205" width="20" height="26" fill="#b08d4a"/>
+  <path d="M100 28L152 104H48z" fill="url(#tr)" stroke="#d9ccaa"/><path d="M100 68L170 156H30z" fill="url(#tr)" stroke="#d9ccaa"/><path d="M100 112L186 210H14z" fill="url(#tr)" stroke="#d9ccaa"/>
+  <polygon points="100,6 105,20 120,20 108,29 112,43 100,35 88,43 92,29 80,20 95,20" fill="url(#bl)"/>
+  <circle cx="86" cy="92" r="6" fill="url(#bl)"/><circle cx="116" cy="130" r="6.5" fill="url(#bl)"/><circle cx="70" cy="158" r="7" fill="url(#bl)"/><circle cx="132" cy="182" r="7" fill="url(#bl)"/><circle cx="98" cy="170" r="5.5" fill="url(#bl)"/><circle cx="48" cy="198" r="6.5" fill="url(#bl)"/><circle cx="158" cy="200" r="6" fill="url(#bl)"/><circle cx="108" cy="62" r="4.5" fill="url(#bl)"/>
+  <g fill="#fff0b8"><circle class="tw" cx="92" cy="60" r="2"/><circle class="tw" cx="128" cy="96" r="2"/><circle class="tw" cx="62" cy="128" r="2"/><circle class="tw" cx="146" cy="150" r="2"/><circle class="tw" cx="84" cy="192" r="2"/><circle class="tw" cx="120" cy="204" r="2"/><circle class="tw" cx="36" cy="180" r="2"/><circle class="tw" cx="172" cy="188" r="2"/></g></svg>
+  <div class="sc gt rv" style="font-size:3.4rem">Primera Cena</div>
+  <h1 class="gt rv">Navideña</h1>
+  <div class="rule rv">✦</div>
+  <h2 class="rv">Carrera de Trabajo Social</h2>
+  <div class="dtl rv"><small>Miércoles</small><b>9 · Diciembre · 2026</b><small>8:30 p. m. en adelante</small></div>
+  <p class="rv" style="font-style:italic;color:var(--muted);margin-top:26px">Organizan la Carrera de Trabajo Social y la Asociación de Estudiantes de la Carrera de Trabajo Social</p>
+</section>
+
+<section>
+  <svg class="bauble rv" viewBox="0 0 120 150"><defs><radialGradient id="b2" cx=".35" cy=".3"><stop offset="0" stop-color="#fff3c4"/><stop offset=".55" stop-color="#c9a24a"/><stop offset="1" stop-color="#7d5d1a"/></radialGradient></defs><path d="M60 0V38" stroke="#b8923d" stroke-width="2"/><rect x="49" y="36" width="22" height="13" rx="3" fill="url(#b2)"/><circle cx="60" cy="96" r="46" fill="url(#b2)"/><ellipse cx="44" cy="74" rx="13" ry="7" fill="#fff" opacity=".35" transform="rotate(-30 44 74)"/></svg>
+  <div class="cd rv" id="cd"><div>--<small>Días</small></div><span class="s">:</span><div>--<small>Horas</small></div><span class="s">:</span><div>--<small>Min</small></div><span class="s">:</span><div>--<small>Seg</small></div></div>
+  <p class="rv" id="cdmsg" style="margin-top:22px">La magia está en el aire.</p>
+  <div class="sc gt rv" style="font-size:2.6rem">Prepárate para una Navidad inolvidable</div>
+</section>
+
+<section>
+  <div class="kick rv">Todo lo que debes saber</div>
+  <div class="sc gt rv" style="font-size:3rem">Detalles</div>
+  <div class="card rv"><h2>Lugar</h2><p>Salón de Eventos del Grupo de Caballería Mecanizada N°18 “Cazadores de los Ríos”</p><a class="btn" href="https://maps.app.goo.gl/ujwf8wntvriwRbN56" target="_blank" rel="noopener">Ver ubicación en Google Maps</a></div>
+  <div class="card rv"><h2>Fecha y hora</h2><p>Miércoles 9 de diciembre</p><p>8:30 p. m. en adelante</p></div>
+  <div class="card rv"><h2>Vestimenta</h2><p>Semiformal</p><p style="font-style:italic;color:var(--muted)">Luce tu mejor atuendo navideño</p></div>
+</section>
+
+<section>
+  <div class="kick rv">Una noche mágica</div>
+  <div class="sc gt rv" style="font-size:3rem">Lo que te espera</div>
+  <ul class="l rv">
+    <li><b>Comida y bebida</b></li>
+    <li><b>Música en vivo</b></li>
+    <li><b>Baile</b></li>
+    <li><b>Bolsa de caramelos</b></li>
+    <li class="hl"><b>Rifa navideña</b> con premios</li>
+    <li class="hl"><b>Elección de la princesita y el príncipe de Navidad</b></li>
+    <li><b>Números artísticos</b></li>
+  </ul>
+  <div class="sc gt rv" style="font-size:2.2rem">¡Y mucho más!</div>
+</section>
+
+<section style="padding-bottom:90px">
+  <div class="rule rv" style="margin-top:0">✦ ✦ ✦</div>
+  <div class="kick rv">Gracias por ser parte</div>
+  <div class="sc gt rv" style="font-size:3.4rem">Nos vemos bajo las luces</div>
+  <div class="rule rv">✦</div>
+  <p class="rv">Cada brindis, cada baile y cada sonrisa harán de esta noche un recuerdo que guardaremos para siempre. Porque la Navidad se vive mejor en comunidad, y Trabajo Social late más fuerte cuando estamos unidos.</p>
+  <p class="rv" style="font-style:italic;color:var(--muted)">Ven, comparte y ayúdanos a convertir esta primera cena en una tradición.</p>
+  <h2 class="gt rv" style="margin-top:26px">Carrera de Trabajo Social</h2>
+  <p class="rv" style="font-size:1rem;color:var(--muted)">Asociación de Estudiantes de la Carrera de Trabajo Social</p>
+</section>
+
+</div></main>
+<button id="music" aria-label="Música">🔇 Música</button>
+
+<script>
+// sobre
+var env=document.getElementById('envbox'),ovl=document.getElementById('env'),m=document.getElementById('m');
+function abrir(){
+  if(env.classList.contains('open'))return;
+  env.classList.add('open');
+  if(!playing)setMusic(true);
+  setTimeout(function(){ovl.classList.add('gone');m.classList.add('on');reveal()},2100);
+}
+env.onclick=abrir;ovl.onclick=abrir;
+
+// aparecer al hacer scroll
+var io;
+function reveal(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('in')});return}
+  io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{root:m,threshold:.15});
+  [].forEach.call(els,function(e,i){e.style.transitionDelay=(i%4)*.12+'s';io.observe(e)});
+}
+
+// cuenta regresiva: 9 dic 2026, 20:30 hora local
+var T=new Date(2026,11,9,20,30,0);
+function tick(){
+  var s=Math.floor((T-new Date())/1000),b=document.querySelectorAll('#cd div');
+  if(s<=0){document.getElementById('cd').style.display='none';document.getElementById('cdmsg').textContent='¡La noche navideña ya llegó!';return}
+  var v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60],lb=['Días','Horas','Min','Seg'];
+  v.forEach(function(x,i){b[i].innerHTML=(i?('0'+x).slice(-2):x)+'<small>'+lb[i]+'</small>'});
+}
+tick();setInterval(tick,1000);
+
+// música: "Jingle Bells" (dominio público) sintetizada con Web Audio
+var ac=null,playing=false,timer=null,master=null;
+var F={E:659.25,G:783.99,C:523.25,D:587.33,F:698.46};
+var mel=[['E',1],['E',1],['E',2],['E',1],['E',1],['E',2],['E',1],['G',1],['C',1.5],['D',.5],['E',4],
+['F',1],['F',1],['F',1.5],['F',.5],['F',1],['E',1],['E',1],['E',.5],['E',.5],['E',1],['D',1],['D',1],['E',1],['D',2],['G',2],
+['E',1],['E',1],['E',2],['E',1],['E',1],['E',2],['E',1],['G',1],['C',1.5],['D',.5],['E',4],
+['F',1],['F',1],['F',1],['F',1],['F',1],['E',1],['E',1],['E',.5],['E',.5],['G',1],['G',1],['F',1],['D',1],['C',4]];
+function bell(f,t,d){
+  [[1,.2],[2,.07],[3.01,.035]].forEach(function(h){
+    var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f*h[0];
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(h[1],t+.01);g.gain.exponentialRampToValueAtTime(.0008,t+d+.5);
+    o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.6);
+  });
+}
+function pass(){
+  var t=ac.currentTime+.1,beat=.36;
+  mel.forEach(function(n){bell(F[n[0]],t,n[1]*beat);t+=n[1]*beat});
+  timer=setTimeout(function(){if(playing)pass()},(t-ac.currentTime+1.2)*1000);
+}
+function setMusic(on){
+  var b=document.getElementById('music');
+  try{
+    if(on){
+      if(!ac){var C=window.AudioContext||window.webkitAudioContext;ac=new C();master=ac.createGain();master.gain.value=.45;master.connect(ac.destination)}
+      if(ac.state==='suspended')ac.resume();
+      playing=true;pass();b.textContent='🔊 Música';
+    }else{playing=false;clearTimeout(timer);if(ac)ac.suspend();b.textContent='🔇 Música'}
+  }catch(e){}
+}
+document.getElementById('music').onclick=function(e){e.stopPropagation();setMusic(!playing)};
+
+// destellos dorados
+var c=document.getElementById('fx'),x=c.getContext('2d'),sp=[];
+function size(){c.width=innerWidth;c.height=innerHeight}size();addEventListener('resize',size);
+for(var i=0;i<55;i++)sp.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+.6,s:Math.random()*.5+.15,d:Math.random()*6,a:Math.random()});
+(function loop(){x.clearRect(0,0,c.width,c.height);
+sp.forEach(function(f){f.y+=f.s;f.d+=.012;f.x+=Math.sin(f.d)*.4;f.a+=.02;if(f.y>c.height){f.y=-6;f.x=Math.random()*c.width}
+x.fillStyle='rgba(212,172,80,'+(.35+.45*Math.abs(Math.sin(f.a)))+')';x.beginPath();x.arc(f.x,f.y,f.r,0,7);x.fill()});
+requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>
